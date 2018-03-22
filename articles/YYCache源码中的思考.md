@@ -8,7 +8,7 @@
 `YYCache`中，作者采用了`sqlite+file system`的形式实现了一个高性能的`cache framework`。
 源码总共包含8个文件，基础结构大致如下图：
 
-![YYCache](https://github.com/damon8to24/blog/blob/master/resource/YYCache.png)
+![](https://github.com/damon8to24/blog/raw/master/resources/YYCache.png)
 `YYKVStorage`是最基础的操作类，负责进行sqlite和file system有关的一系列操作，不需要我们直接使用此类。其中的`YYKVStorageItem`是单个存储单元，包含了存储内容的各种信息。
 
 `YYDiskCache`和`YYMemoryCache`分别是disk存储和memory存储。disk存储是一个线程安全、将数据保存在`sqlite`和`file system`的cache。memory存储是一个在内存中快速保存、API和表现类似`NSCache`的cache。
@@ -95,7 +95,7 @@ if (fileName.length == 0) {
 其实在`YYDiskCache`中作者最初的选择是自旋锁(OSSpinLock)，放弃的原因是来自这篇文章：[不再安全的 OSSpinLock](https://blog.ibireme.com/2016/01/16/spinlock_is_unsafe_in_ios/)
 
 图片资源来自
-![](media/15210869272541/15211221254020.png)
+![](https://github.com/damon8to24/blog/raw/master/resources/lock_benchmark.png)
 
 
 之后作者选择了性能稍差的信号量。那为什么在`YYMemoryCache`中选择了性能差于信号量的`pthread_mutex_t`？
