@@ -1,6 +1,5 @@
 # YYCache源码中的思考
 
-[toc]
 ## 写在前面
 这里并不细致讨论`YYCache`的具体实现，如有了解的需要请移步[YYCache](https://github.com/ibireme/YYCache/)
 
