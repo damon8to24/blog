@@ -94,7 +94,7 @@ if (fileName.length == 0) {
 ### 为什么在YYMemoryCache使用了互斥锁（pthread_mutex_t），而在YYDiskCache中选用了信号量（dispatch_semaphore_t）？
 其实在`YYDiskCache`中作者最初的选择是自旋锁(OSSpinLock)，放弃的原因是来自这篇文章：[不再安全的 OSSpinLock](https://blog.ibireme.com/2016/01/16/spinlock_is_unsafe_in_ios/)
 
-图片资源来自
+图片资源来自[不再安全的 OSSpinLock](https://blog.ibireme.com/2016/01/16/spinlock_is_unsafe_in_ios/)
 ![](https://github.com/damon8to24/blog/raw/master/resources/lock_benchmark.png)
 
 
